@@ -1,14 +1,10 @@
 ---
 name: excalidraw
-description: >
-  Generate Excalidraw diagrams as .excalidraw files. Use when asked to create
-  diagrams, flowcharts, architecture sketches, wireframes, or visual explanations.
-  Outputs valid .excalidraw JSON files with hand-drawn style.
+description: "Generate Excalidraw diagrams as .excalidraw files. Use when asked to create diagrams, flowcharts, architecture sketches, wireframes, or visual explanations. Outputs valid .excalidraw JSON files with hand-drawn style."
 license: MIT
 metadata:
   author: alexanderopalic
   version: "1.0"
-argument-hint: "[diagram description]"
 ---
 
 # Excalidraw Diagram Generator

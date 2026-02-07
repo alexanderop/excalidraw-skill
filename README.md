@@ -5,7 +5,7 @@ A [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code/skills) tha
 ## Install
 
 ```bash
-npx skills add alexanderopalic/excalidraw-skill
+npx skills add alexanderop/excalidraw-skill
 ```
 
 ## Usage
@@ -28,14 +28,6 @@ Or just ask naturally — the skill triggers on requests to create diagrams, flo
 ## Customization
 
 Edit `colors.md` to change the color palette used for all generated diagrams.
-
-## Utilities
-
-`scripts/excalidraw-convert.ts` converts skeleton JSON (with `label` shorthand) into a fully valid `.excalidraw` file:
-
-```bash
-npx tsx scripts/excalidraw-convert.ts input.json output.excalidraw
-```
 
 ## License
 
