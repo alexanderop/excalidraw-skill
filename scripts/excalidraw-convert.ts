@@ -7,9 +7,8 @@
  *
  * The input file should contain a JSON array of skeleton elements (the same format
  * the cheat sheet teaches). The script:
- *   1. Strips `cameraUpdate` elements (not valid in .excalidraw files)
- *   2. Converts `label` shorthand on shapes/arrows into separate bound text elements
- *   3. Wraps everything in a standard .excalidraw envelope
+ *   1. Converts `label` shorthand on shapes/arrows into separate bound text elements
+ *   2. Wraps everything in a standard .excalidraw envelope
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -106,11 +105,6 @@ function convert(skeletonElements: SkeletonElement[]): ExcalidrawElement[] {
   const result: ExcalidrawElement[] = [];
 
   for (const raw of skeletonElements) {
-    // Skip camera/viewport pseudo-elements
-    if (raw.type === "cameraUpdate" || raw.type === "viewportUpdate") {
-      continue;
-    }
-
     const el = { ...raw };
     const label = el.label;
     delete el.label;

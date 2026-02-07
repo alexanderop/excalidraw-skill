@@ -1,48 +1,25 @@
 # Excalidraw Color Theme
 
-Edit these colors to match your preferred theme. The skill uses these palettes for all diagrams.
+These are the only allowed colors. The skill uses these palettes for all diagrams.
 
-## Primary Colors (strokes, text accents, data series)
+## Core Palette
 
-| Role | Hex | Example Use |
-|------|-----|-------------|
-| Blue | `#4a9eed` | Primary actions, links, data series 1 |
-| Amber | `#f59e0b` | Warnings, highlights, data series 2 |
-| Green | `#22c55e` | Success, positive, data series 3 |
-| Red | `#ef4444` | Errors, negative, data series 4 |
-| Purple | `#8b5cf6` | Accents, special items, data series 5 |
-| Pink | `#ec4899` | Decorative, data series 6 |
-| Cyan | `#06b6d4` | Info, secondary, data series 7 |
-| Lime | `#84cc16` | Extra, data series 8 |
+| Role | Hex | RGB | Example Use |
+|------|-----|-----|-------------|
+| Fill (bg) | `#212737` | 33, 39, 55 | Canvas/shape background |
+| Text | `#eaedf3` | 234, 237, 243 | Labels, text, strokes |
+| Accent | `#ff6bed` | 255, 107, 237 | Primary actions, highlights, links |
+| Card | `#343f60` | 52, 63, 96 | Shape fills, panels, nodes |
+| Card Muted | `#8a337b` | 138, 51, 123 | Secondary fills, decorative |
+| Border | `#ab4b99` | 171, 75, 153 | Shape outlines, dividers |
 
-## Fills (pastel, for shape backgrounds)
+## Status Colors
 
 | Role | Hex | Example Use |
 |------|-----|-------------|
-| Light Blue | `#a5d8ff` | Input, sources, primary nodes |
-| Light Green | `#b2f2bb` | Success, output, completed |
-| Light Orange | `#ffd8a8` | Warning, pending, external |
-| Light Purple | `#d0bfff` | Processing, middleware |
-| Light Red | `#ffc9c9` | Error, critical, alerts |
-| Light Yellow | `#fff3bf` | Notes, decisions, planning |
-| Light Teal | `#c3fae8` | Storage, data, memory |
-| Light Pink | `#eebefa` | Analytics, metrics |
-
-## Background Zones (use with `opacity: 30` for layered diagrams)
-
-| Role | Hex | Example Use |
-|------|-----|-------------|
-| Blue zone | `#dbe4ff` | UI / frontend layer |
-| Purple zone | `#e5dbff` | Logic / agent layer |
-| Green zone | `#d3f9d8` | Data / tool layer |
-
-## Neutral / Chrome
-
-| Role | Hex | Example Use |
-|------|-----|-------------|
-| Default stroke | `#1e1e1e` | Shape outlines, text |
-| Muted text | `#b0b0b0` | Subtitles, placeholders |
-| Secondary text | `#555555` | Secondary labels |
-| Light border | `#d4d4d0` | UI chrome, dividers |
-| Light background | `#fafaf7` | Panel/card backgrounds |
-| Highlight bg | `#f5f0e8` | Selected/active items |
+| Success | `#22c55e` | Positive, completed, approved |
+| Success fill | `#164e2a` | Success shape backgrounds |
+| Warning | `#f59e0b` | Caution, pending, needs attention |
+| Warning fill | `#5c3d0e` | Warning shape backgrounds |
+| Error | `#ef4444` | Errors, critical, rejected |
+| Error fill | `#5c1a1a` | Error shape backgrounds |

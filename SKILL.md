@@ -14,14 +14,31 @@ Generate hand-drawn Excalidraw diagrams and save them as `.excalidraw` files.
 ## Workflow
 
 1. Read `colors.md` from this skill directory to get the current color theme
-2. Decide what the diagram should look like: elements, layout, colors, labels, arrows
-3. Spawn a **subagent** (Task tool, `subagent_type: "general-purpose"`) with:
+2. Decide if the diagram benefits from icons (see **Icons** section below)
+3. If yes, read `icons.md` from this skill directory for icon recipes
+4. Plan the diagram: elements, layout, colors, labels, arrows, and icon placements
+5. Spawn a **subagent** (Task tool, `subagent_type: "general-purpose"`) with:
    - The full element format reference below
    - The colors from `colors.md`
-   - A detailed description of the diagram to draw (element positions, labels, connections, colors)
+   - Icon recipes from `icons.md` (if applicable)
+   - A detailed description of the diagram to draw (element positions, labels, connections, colors, icon placements)
    - The output file path (ask the user or default to `diagram.excalidraw` in the current directory)
-4. The subagent produces the JSON elements array and writes the `.excalidraw` file
-5. Tell the user the output path — they can open it at [excalidraw.com](https://excalidraw.com) or in VS Code with the Excalidraw extension
+6. The subagent produces the JSON elements array and writes the `.excalidraw` file
+7. Tell the user the output path — they can open it at [excalidraw.com](https://excalidraw.com) or in VS Code with the Excalidraw extension
+
+## Icons (Optional)
+
+**Include icons when:**
+- Architecture diagrams with distinct component types (frontend, API, database, cache, etc.)
+- Nodes that would otherwise all look like identical rectangles
+- The user explicitly asks for icons or visual distinction
+
+**Skip icons when:**
+- Simple flowcharts or sequence diagrams where shape/color already conveys meaning
+- Wireframes or UI mockups
+- Very small diagrams (fewer than 4 nodes)
+
+When using icons, describe each icon placement in the subagent prompt: which icon type, where it goes (inline in a shape or standalone), and the base coordinates.
 
 ## Subagent Prompt Template
 
@@ -105,7 +122,13 @@ fixedPoint: top=[0.5,0], bottom=[0.5,1], left=[0,0.5], right=[1,0.5]
 ### Drawing Order
 - Array order = z-order (first = back, last = front)
 - Background zones first, then shapes, then text/labels, then arrows
-- Decorative art/illustrations LAST
+- Icons and decorative art/illustrations LAST
+
+### Group IDs (for icons)
+- Each icon is made of multiple primitive elements that share a `groupIds` entry
+- Convention: `"groupIds": ["ico_{type}_{n}"]` — e.g., `["ico_database_1"]`, `["ico_cloud_2"]`
+- All parts of one icon get the same groupId so they move/select together
+- Icon parts use `strokeWidth: 1` (thinner than normal shapes)
 
 ### Rules
 - Do NOT use emoji in text — they don't render in Excalidraw's Virgil font
@@ -136,7 +159,8 @@ fixedPoint: top=[0.5,0], bottom=[0.5,1], left=[0,0.5], right=[1,0.5]
 
 After the format reference, append:
 - The colors from `colors.md`
-- Your detailed diagram description
+- The icon recipes from `icons.md` (if the diagram uses icons)
+- Your detailed diagram description (including icon placements if applicable)
 - The output file path
 - "Write the .excalidraw file using the Write tool. Output ONLY the file — no explanation needed."
 
